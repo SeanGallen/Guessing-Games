@@ -24,13 +24,24 @@ function onErr(err) {
 
 promptGet();
 
-function guessingGame(guess, number)
+function guessingGame(text, number)
 {
-  if (counter === 4 && parseInt(guess) !== number)
+  var guess = Number(text);
+  if (counter === 4 && guess !== number)
   {
     return ('Thank you for playing. The number was ' + number + '.');
   }
-  if (guess < number)
+  if (isNaN(guess))
+  {
+    console.log('This is not a number. Try Again.');
+    promptGet();
+  }
+  else if (guess < 1 || guess > 100)
+  {
+    console.log('Your guess is out of the range of 1 - 100. Try Again.');
+    promptGet();
+  }
+  else if (guess < number)
   {
     console.log('Higher ');
     promptGet();
