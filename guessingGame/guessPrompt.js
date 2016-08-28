@@ -2,7 +2,7 @@ var prompt = require('prompt');
 var random = Math.random();
 var multi = random * 100;
 var number = Math.round(multi);
-var counter = 0;
+var counter = 1;
 
 prompt.start();
 
@@ -17,18 +17,18 @@ function promptGet() {
 };
 
 
-function onErr (err) {
+function onErr(err) {
   console.log(err);
   return 1;
 }
+
 promptGet();
 
 function guessingGame(guess, number)
 {
-  counter++;
-  if (counter === 4)
+  if (counter === 4 && parseInt(guess) !== number)
   {
-   return ('Thank you for playing. The number was ' + number);
+    return ('Thank you for playing. The number was ' + number + '.');
   }
   if (guess < number)
   {
@@ -42,7 +42,8 @@ function guessingGame(guess, number)
   }
   else
   {
-    return('Great Job! We both picked ' + number);
+    return('Great Job! We both picked ' + number + '.');
   }
+  counter++;
 }
 
