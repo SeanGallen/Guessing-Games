@@ -8,7 +8,7 @@ prompt.start();
 
 
 console.log('Guess a number between 1 - 100 \nYou have 4 guesses.\n');
-function get() {
+function promptGet() {
   prompt.get(['guess'], function (err, result) {
     if (err) { return onErr(err); }
     var guess = result.guess;
@@ -21,7 +21,7 @@ function onErr (err) {
   console.log(err);
   return 1;
 }
-get();
+promptGet();
 
 function guessingGame(guess, number)
 {
@@ -33,18 +33,16 @@ function guessingGame(guess, number)
   if (guess < number)
   {
     console.log('Higher ');
-    get();
+    promptGet();
   }
   else if (guess > number)
   {
     console.log('Lower ');
-    get();
+    promptGet();
   }
   else
   {
     return('Great Job! We both picked ' + number);
   }
 }
-
-
 
