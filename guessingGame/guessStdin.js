@@ -5,7 +5,6 @@ var util = require('util');
 var randomNumber = Math.round((Math.random())*100);
 var counter = 0;
 console.log('Guess a number between 1 - 100. \nYou have 4 guesses.\n');
-console.log(randomNumber);
 process.stdin.on('data', function (text) {
   getGuess(text);
 });
