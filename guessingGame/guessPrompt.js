@@ -2,7 +2,7 @@ var prompt = require('prompt');
 var random = Math.random();
 var multi = random * 100;
 var number = Math.round(multi);
-var counter = 1;
+var counter = 0;
 
 prompt.start();
 
@@ -26,6 +26,7 @@ promptGet();
 
 function guessingGame(text, number)
 {
+  counter++;
   var guess = Number(text);
   if (counter === 4 && guess !== number)
   {
@@ -55,6 +56,5 @@ function guessingGame(text, number)
   {
     return('Great Job! We both picked ' + number + '.');
   }
-  counter++;
 }
 
